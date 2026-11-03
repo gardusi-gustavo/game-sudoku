@@ -2,6 +2,9 @@ name: ci
 on:
   pull_request:
     branches: [main]
+permissions:
+  contents: read
+
 concurrency:
   group: ci-${{ github.repository }}-${{ github.ref }}
   cancel-in-progress: true
@@ -12,7 +15,5 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-      - name: Check game
-        run: docker run --rm --volumes-from "$(hostname)" -w "$PWD" rust:1.85 cargo check --all-targets
-      - name: Check solver
-        run: python3 -m unittest discover -s bots/solver -p 'test_*.py'
+      - name: Run local CI
+        run: bash infra/scripts/ci/entrypoint.sh

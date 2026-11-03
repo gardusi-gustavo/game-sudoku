@@ -1,1 +1,1 @@
-// Sudoku game engine — solver integration belongs in bots/.
+// Sudoku game engine — solver integration belongs in src/bots/.
