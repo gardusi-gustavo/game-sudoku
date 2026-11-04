@@ -4,6 +4,7 @@ on:
     branches: [main]
 permissions:
   contents: read
+  pull-requests: read
 
 concurrency:
   group: ci-${{ github.repository }}-${{ github.ref }}
@@ -13,6 +14,8 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     timeout-minutes: 15
+    env:
+      GITEA_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - uses: actions/checkout@v4
       - name: Run local CI
