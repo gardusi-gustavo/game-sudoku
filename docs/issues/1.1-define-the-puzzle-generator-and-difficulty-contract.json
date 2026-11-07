@@ -1,42 +1,32 @@
 {
-  "id": "1.1",
   "rank": "1.1",
-  "type": "enhancement",
-  "title": "1.1 - Define the puzzle generator and difficulty contract",
-  "status": "backlog",
-  "source": "agent",
-  "author": "gardusi-gustavo-bot",
-  "created": "2026-10-29",
-  "platform": "gitea",
-  "platform_issue_id": null,
-  "platform_issue_url": null,
+  "title": "Define the puzzle generator and difficulty contract",
+  "context": "Define how Sudoku puzzles are generated, validated, and graded.",
   "limits": {
     "max_commits": 5,
     "max_file_changes": 4
   },
-  "attempts": [],
-  "tags": [
-    "enhancement",
-    "migrated"
-  ],
-  "legacy": {
-    "issue_id": 4,
-    "url": "http://gitea.localhost:3001/games/sudoku/issues/4",
-    "author": "gardusi-gustavo-bot",
-    "created_at": "2026-10-29",
-    "labels": [
-      "enhancement"
-    ],
-    "comments_count": 0,
-    "original_rank": "1.1",
-    "original_title": "1.1 - Define the puzzle generator and difficulty contract",
-    "body": "## Summary\n\nDefine how Sudoku puzzles are generated, validated, and graded.\n\n## Context\n\nThe repository describes a generator and solver but has no puzzle schema,\nuniqueness rule, or difficulty contract.\n\n## Expected outcome\n\n- Puzzle schema: givens, solution, difficulty.\n- Seeded, reproducible generation.\n- Uniqueness: exactly one solution.\n- Difficulty: solver steps, techniques required, or clue count.\n- Fixtures for valid, invalid, and ambiguous puzzles.\n\n## Out of scope\n\n- Rendering the grid.\n- Training a learned model.\n- Player hints.\n\n## Acceptance criteria\n\n- [ ] A puzzle schema is documented and versioned.\n- [ ] A seed produces the same puzzle.\n- [ ] Invalid puzzles are rejected with a reason.\n- [ ] Uniqueness is checked by the solver.\n- [ ] Difficulty buckets have numeric thresholds.\n- [ ] At least five fixtures cover valid and invalid cases.\n- [ ] Generator and solver share the validity check.\n\n## Plan\n\n- [ ] Write the schema and invariants.\n- [ ] Define the seeded generator interface.\n- [ ] Implement the validator.\n- [ ] Add fixtures.\n- [ ] Document difficulty.\n\n## Validation\n\n- [ ] Same seed = same puzzle.\n- [ ] A puzzle with two solutions is rejected.\n- [ ] Difficulty buckets are reproducible.\n- [ ] Fixtures pass in CI.\n\n## References\n\n- Game contract: #3\n- Solver parity: #5\n- Tests: ops/templates#34"
-  },
   "spec": {
-    "summary": "## Summary",
-    "expected_outcome": "Migrated from Gitea issue #4; confirm scope before starting.",
+    "summary": "Define the puzzle generator and difficulty contract",
+    "expected_outcome": "Confirm the migrated scope and acceptance criteria.",
     "acceptance_criteria": [
-      "Review the legacy body and confirm the acceptance criteria."
+      "A puzzle schema is documented and versioned.",
+      "A seed produces the same puzzle.",
+      "Invalid puzzles are rejected with a reason.",
+      "Uniqueness is checked by the solver.",
+      "Difficulty buckets have numeric thresholds.",
+      "At least five fixtures cover valid and invalid cases.",
+      "Generator and solver share the validity check.",
+      "Write the schema and invariants.",
+      "Define the seeded generator interface.",
+      "Implement the validator.",
+      "Add fixtures.",
+      "Document difficulty.",
+      "Same seed = same puzzle.",
+      "A puzzle with two solutions is rejected.",
+      "Difficulty buckets are reproducible.",
+      "Fixtures pass in CI."
     ]
-  }
+  },
+  "attempts": []
 }
