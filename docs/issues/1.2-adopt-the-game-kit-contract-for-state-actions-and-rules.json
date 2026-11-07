@@ -1,0 +1,42 @@
+{
+  "id": "1.2",
+  "rank": "1.2",
+  "type": "enhancement",
+  "title": "1.2 - Adopt the game-kit contract for state, actions, and rules",
+  "status": "backlog",
+  "source": "agent",
+  "author": "gardusi-gustavo-bot",
+  "created": "2026-10-29",
+  "platform": "gitea",
+  "platform_issue_id": null,
+  "platform_issue_url": null,
+  "limits": {
+    "max_commits": 5,
+    "max_file_changes": 4
+  },
+  "attempts": [],
+  "tags": [
+    "enhancement",
+    "migrated"
+  ],
+  "legacy": {
+    "issue_id": 3,
+    "url": "http://gitea.localhost:3001/games/sudoku/issues/3",
+    "author": "gardusi-gustavo-bot",
+    "created_at": "2026-10-29",
+    "labels": [
+      "enhancement"
+    ],
+    "comments_count": 0,
+    "original_rank": "1.2",
+    "original_title": "1.2 - Adopt the game-kit contract for state, actions, and rules",
+    "body": "## Summary\n\nImplement the shared `game-kit` contract so Sudoku exposes one deterministic\ngame core for the client, solver, and training.\n\n## Context\n\n`src/lib.rs` is a one-line comment and `Cargo.toml` does not depend on\n`tools/game-kit`. The Python solver in `bots/solver/` has no shared contract with\nthe Rust core.\n\n## Expected outcome\n\n- `sudoku` implements `game_kit::Game`.\n- State and action types are explicit and serializable.\n- `apply` is deterministic and rejects illegal placements.\n- `legal_actions` respects row, column, and box constraints.\n- The core has no browser or rendering code.\n\n## Out of scope\n\n- Puzzle generation.\n- Python solver changes.\n- Browser UI.\n\n## Acceptance criteria\n\n- [ ] `Cargo.toml` depends on a pinned `game-kit` version.\n- [ ] `State`, `Action`, and `Game` are implemented.\n- [ ] Illegal placements return `None` and never panic.\n- [ ] Replaying the same puzzle and moves produces identical state.\n- [ ] A conformance test covers initial state, legal actions, and apply.\n- [ ] The state can be exported for the solver.\n\n## Plan\n\n- [ ] Map Sudoku rules to the traits.\n- [ ] Add serialization.\n- [ ] Add the conformance test.\n- [ ] Document invariants in `docs/`.\n\n## Validation\n\n- [ ] Same puzzle + moves = same state hash.\n- [ ] A conflicting placement is rejected.\n- [ ] `cargo test` passes.\n\n## References\n\n- Shared contract: tools/game-kit\n- Boundaries: ops/templates#31\n- Shared contracts: ops/templates#32\n- Tests: ops/templates#34"
+  },
+  "spec": {
+    "summary": "## Summary",
+    "expected_outcome": "Migrated from Gitea issue #3; confirm scope before starting.",
+    "acceptance_criteria": [
+      "Review the legacy body and confirm the acceptance criteria."
+    ]
+  }
+}

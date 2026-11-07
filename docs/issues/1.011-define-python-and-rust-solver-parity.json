@@ -1,0 +1,42 @@
+{
+  "id": "1.011",
+  "rank": "1.011",
+  "type": "enhancement",
+  "title": "1.011 - Define Python and Rust solver parity",
+  "status": "backlog",
+  "source": "agent",
+  "author": "gardusi-gustavo-bot",
+  "created": "2026-10-29",
+  "platform": "gitea",
+  "platform_issue_id": null,
+  "platform_issue_url": null,
+  "limits": {
+    "max_commits": 5,
+    "max_file_changes": 4
+  },
+  "attempts": [],
+  "tags": [
+    "enhancement",
+    "migrated"
+  ],
+  "legacy": {
+    "issue_id": 5,
+    "url": "http://gitea.localhost:3001/games/sudoku/issues/5",
+    "author": "gardusi-gustavo-bot",
+    "created_at": "2026-10-29",
+    "labels": [
+      "enhancement"
+    ],
+    "comments_count": 0,
+    "original_rank": "1.0",
+    "original_title": "1.0 - Define Python and Rust solver parity",
+    "body": "## Summary\n\nDefine how the Python solver and the Rust engine stay equivalent.\n\n## Context\n\n`bots/solver/solver.py` and `test_solver.py` exist, while the Rust core is a\nscaffold. Two implementations will drift unless parity is defined.\n\n## Expected outcome\n\n- Shared fixtures: puzzles and expected results.\n- The same validity and uniqueness rules on both sides.\n- A parity test that runs both implementations.\n- A documented source of truth for accepted solutions.\n- A failure mode when the two disagree.\n\n## Out of scope\n\n- Choosing one language for everything.\n- Performance optimization.\n- Training a learned solver.\n\n## Acceptance criteria\n\n- [ ] Fixtures are shared by both solvers.\n- [ ] Both produce the same solution for every fixture.\n- [ ] Both agree on valid, invalid, and ambiguous puzzles.\n- [ ] Disagreement fails CI.\n- [ ] The source of truth is documented.\n\n## Plan\n\n- [ ] Move fixtures to a shared directory.\n- [ ] Define the fixture schema.\n- [ ] Add the Rust parity test.\n- [ ] Run both in CI.\n- [ ] Document the rules.\n\n## Validation\n\n- [ ] Mutating a fixture fails parity.\n- [ ] Both reject a duplicate clue.\n- [ ] Both accept the same valid puzzle.\n\n## References\n\n- Game contract: #3\n- Generator: #4\n- Tests: ops/templates#34"
+  },
+  "spec": {
+    "summary": "## Summary",
+    "expected_outcome": "Migrated from Gitea issue #5; confirm scope before starting.",
+    "acceptance_criteria": [
+      "Review the legacy body and confirm the acceptance criteria."
+    ]
+  }
+}
