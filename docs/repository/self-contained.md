@@ -7,7 +7,7 @@ recoverable, and copyable without Gitea.
 
 - Repository: `games/sudoku`
 - Visibility: public
-- Owner: `gardusi-gustavo`
+- Owner: `human`
 - Git platform: Gitea
 - Local checkout: `~/repos/games/sudoku`
 
