@@ -8,7 +8,8 @@
   "workload": "game",
   "visibility": "public",
   "platforms": [
-    "gitea"
+    "gitea",
+    "github"
   ],
   "features": {
     "ci": true,
@@ -124,6 +125,27 @@
           ".md"
         ],
         "allow_names": []
+      },
+      ".github/": {
+        "allow_globs": [
+          "*"
+        ],
+        "allow_names": [
+          "CODEOWNERS"
+        ]
+      },
+      ".github/workflows/": {
+        "allow_extensions": [
+          ".yml",
+          ".yaml"
+        ]
+      },
+      ".github/ISSUE_TEMPLATE/": {
+        "allow_extensions": [
+          ".yml",
+          ".yaml",
+          ".md"
+        ]
       }
     },
     "forbid": [
@@ -135,7 +157,8 @@
           "^AGENTS\\.md$",
           "^docs/",
           "^\\.gitea/issue_template/",
-          "^\\.gitea/pull_request_template\\.md$"
+          "^\\.gitea/pull_request_template\\.md$",
+          "^\\.github/"
         ]
       },
       {
@@ -145,10 +168,6 @@
       {
         "regex": "^infra/.*\\.(pdf|png|jpg|jpeg|gif|webp|mp4|mp3|zip|gz|tar|7z)$",
         "reason": "infra is repository management only"
-      },
-      {
-        "regex": "^\\.github/",
-        "reason": "GitHub is not a source"
       },
       {
         "regex": "^\\.gitlab-ci\\.yml$",
